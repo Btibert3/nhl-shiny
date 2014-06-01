@@ -6,4 +6,5 @@ The app also leverages a simple shot probability model that I built. That repo c
 
 ## TODO:
 
+- [ ] handle invalid gameids gracefully
 - [ ] put some liptsick on this pig

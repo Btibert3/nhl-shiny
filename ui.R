@@ -19,16 +19,20 @@ shinyUI(fluidPage(
       #                          selected = c(1, 2, 3, 4)),
       br()
     ),
-    mainPanel(
-      plotOutput('rinkPlot'), 
-      fluidRow(
-        column(7,
-               tableOutput("scoreboard")),
-        column(5,
-               plotOutput("stepgraph")))
+#     mainPanel(
+#       plotOutput('rinkPlot'), 
+#       fluidRow(
+#         column(7,
+#                tableOutput("scoreboard")),
+#         column(5,
+#                plotOutput("stepgraph")))
+      mainPanel(
+        plotOutput('rinkPlot'), 
+        tableOutput("scoreboard"),
+        plotOutput("stepgraph"))
     )
     
-  )))
+  ))
 
 
 # RESIZE THE stepgraph to be much smaller scale

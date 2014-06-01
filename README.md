@@ -6,4 +6,4 @@ The app also leverages a simple shot probability model that I built. That repo c
 
 ## TODO:
 
-[] Put some lipstick on this pig
+- [ ] this is an incomplete item

@@ -8,7 +8,7 @@ That repo can [be found here](https://github.com/Btibert3/nhl-pbp).
 
 ## A quick screenshot
 
-Clearly this is not a polished, but just a quick highlight of the dashboard app.
+Clearly this is very unpolished, but just a quick highlight of the dashboard app.
 
 ![dashboard](screenshot.png)
 

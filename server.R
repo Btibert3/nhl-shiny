@@ -13,6 +13,9 @@ source("helpers.R")
 ## read in the rink
 rink = readJPEG("www/rink.jpg", native=F)
 
+## load the shot model once as shot_model object
+load("shot-model.Rdata")
+
 shinyServer(function(input, output, session) {
   
   ## number of seconds to sleep
@@ -84,8 +87,12 @@ shinyServer(function(input, output, session) {
   ## create the Step Graph for Predicted Cume Goals
   output$stepgraph = renderPlot({
     autoInvalidate()
+    plays2 = plays()
+    plays2 = transform(plays2, 
+                      goal_prob = predict(shot_model, plays2, type="response"))
+    plays2$goal_prob[plays2$shotind != 1] = NA
     ## filter shots
-    shots = subset(plays(), type %in% c("Shot", "Goal"))
+    shots = subset(plays2, type %in% c("Shot", "Goal"))
     ## a temp dataset
     tmp = ddply(shots, .(team_nick, mins_expired), 
                 summarise, 

@@ -6,6 +6,12 @@ The app also leverages a simple shot probability model that I built.
 
 That repo can [be found here](https://github.com/Btibert3/nhl-pbp).
 
+## A quick screenshot
+
+Clearly this is not a polished, but just a quick highlight of the dashboard app.
+
+![dashboard](screenshot.png)
+
 ## About the Model
 
 In my previous repo, I highlight a very proof-of-concept model. It's not elegant, but very effective when estimating a player's total season goals.  With respect to the point estimates (actual probability of a shot going in), it has some room for improvement; AUC is mid .7's.

@@ -6,6 +6,19 @@ The app also leverages a simple shot probability model that I built.
 
 That repo can [be found here](https://github.com/Btibert3/nhl-pbp).
 
+## About the Model
+
+In my previous repo, I highlight a very proof-of-concept model. It's not elegant, but very effective when estimating a player's total season goals.  With respect to the point estimates (actual probability of a shot going in), it has some room for improvement; AUC is mid .7's.
+
+The approach I use is simple: fit a logistic regression to predict a given shot going in goal given:
+
+- the distance,  
+- shot angle,  
+- the wing (left/right)  
+- an interaction between distance and angle
+
+When applying the model to every shot from a player (identified by the NHL `playerid`), and correlating the actual versus predicted goals over the course of a season, the `R-squared` is a touch under `.9`. 
+
 ## TODO:
 
 - [ ] handle invalid gameids gracefully

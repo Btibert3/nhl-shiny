@@ -84,6 +84,8 @@ shinyServer(function(input, output, session) {
   ## create the Step Graph for Predicted Cume Goals
   output$stepgraph = renderPlot({
     autoInvalidate()
+    ## filter shots
+    shots = subset(plays(), type %in% c("Shot", "Goal"))
     ## a temp dataset
     tmp = ddply(shots, .(team_nick, mins_expired), 
                 summarise, 

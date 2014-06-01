@@ -29,3 +29,4 @@ When applying the model to every shot from a player (identified by the NHL `play
 
 - [ ] handle invalid gameids gracefully
 - [ ] put some liptsick on this pig
+- [ ] Modify / change the Forecasted Goals stepchart

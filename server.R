@@ -120,7 +120,7 @@ shinyServer(function(input, output, session) {
     ## plot the data
     g = ggplot(shot_graph, aes(mins_expired, cume_goals, col=team_nick)) + geom_line()
     g = g + scale_colour_brewer(palette="Dark2")
-    g = g + ylab("Y label") + xlab("X label")
+    g = g + ylab("Predicted # of Goals") + xlab("# of Minutes Played")
     g = g + theme(      
       axis.line = element_blank(), axis.ticks = element_blank(),
       legend.position = "top", 

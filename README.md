@@ -13,7 +13,9 @@ I will try to have this deployed on the internets for the 2014 Stanley Cup Final
 1.  If you haven't already, [install `R` here](http://cran.us.r-project.org/)  
 2.  Open up a terminal, and type `R`  
 3.  When `R` opens, type, `install.packages('shiny')` into the command line  
-4.  To run my app locally, type `shiny::runGitHub("nhl-shiny", "btibert3")`
+4.  To run my app locally, type `shiny::runGitHub("nhl-shiny", "btibert3")`  
+
+This should fire up your default modern browser.  It will take a few moments to load the data, and will refresh every 20 seconds or so.  When you want to quit the app, go back to the terminal and type `CONTROL-C` to kill the process.
 
 ## A quick screenshot
 

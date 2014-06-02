@@ -152,7 +152,7 @@ shinyServer(function(input, output, session) {
     pbp$Goal_Probability[pbp$shotind != 1] = NA
     ## sort the data
     pbp = arrange(pbp, desc(period), desc(time))
-    pbp = subset(pbp, select = c(period, time, type, desc, Goal_Probability))
+    pbp = subset(pbp, select = c(period, time, type, team_nick, desc, Goal_Probability))
     pbp
   })
 

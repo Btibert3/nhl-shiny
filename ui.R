@@ -4,9 +4,10 @@ shinyUI(fluidPage(
     sidebarPanel(
       h2("About this App"),
       p("This is a simple app to visualize the events of a live NHL game."),
-      p("For more information, check out my blog post ",
+      p("For more information, check out my blog ",
         a("here. ",
-          href = "http://www.brocktibert.com/posthere")),
+          href = "http://www.brocktibert.com/blog"),
+        "  I will eventually blog about my work and analysis of PBP data."),
       p("Use the options below to you change what is shown on the rink and how often the data are refreshed."),
       hr(),
       textInput("gameid", label = h5("The NHL.com gameid"), value = "2013030327"),
@@ -19,22 +20,14 @@ shinyUI(fluidPage(
       #                          selected = c(1, 2, 3, 4)),
       br()
     ),
-#     mainPanel(
-#       plotOutput('rinkPlot'), 
-#       fluidRow(
-#         column(7,
-#                tableOutput("scoreboard")),
-#         column(5,
-#                plotOutput("stepgraph")))
       mainPanel(
         plotOutput('rinkPlot'), 
+        hr(),
         tableOutput("scoreboard"),
+        hr(),
         plotOutput("stepgraph"),
-        dataTableOutput(outputId = "scoreboard2"))
+        hr(),
+        dataTableOutput("plays")
     )
     
-  ))
-
-
-# RESIZE THE stepgraph to be much smaller scale
-# TODO:  DATA TABLE BELOW
+  )))

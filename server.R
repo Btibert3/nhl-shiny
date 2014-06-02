@@ -19,21 +19,22 @@ load("shot-model.Rdata")
 shinyServer(function(input, output, session) {
   
   ## number of seconds to sleep
-  NUM_SECS = 90
+  NUM_SECS = 30
   NUM_MILLI_SECS = NUM_SECS * 1000
   
   ## TODO:  Selectively refresh the data depending the on the flag
   ## When I use REFRESH() with reactiveTimeer below, it yells about session even with it listed
-  REFRESH = reactive({
-    if(input$refreshFlag == TRUE) 90000
-    if(input$refreshFlag == FALSE) 60*60*1000
-  })
+#   REFRESH = reactive({
+#     if(input$refreshFlag == TRUE) 90000
+#     if(input$refreshFlag == FALSE) 60*60*1000
+#   })
   
   
   ## http://stackoverflow.com/questions/18302579/r-shiny-update-graph-plot-with-fixed-interval-of-time
-  autoInvalidate <- reactiveTimer(20000, session)
+  #autoInvalidate <- reactiveTimer(20000, session)
   
   plays = reactive({
+    invalidateLater(NUM_MILLI_SECS, session)
     buildPBP(input$gameid)
   })
   
@@ -42,7 +43,7 @@ shinyServer(function(input, output, session) {
   
   ## Output the rink plot
   output$rinkPlot <- renderPlot({
-    autoInvalidate()
+    invalidateLater(NUM_MILLI_SECS, session)
     g = ggplot(plays(), aes(x=xcoord, y=ycoord)) 
     g = g + annotation_raster(rink, -100, 100, -42.5, 42.5, interpolate=FALSE)
     g = g + aes(shape = factor(team_nick))
@@ -64,7 +65,7 @@ shinyServer(function(input, output, session) {
   
   ## out the scoreboard
   output$scoreboard = renderTable({
-    autoInvalidate()
+    invalidateLater(NUM_MILLI_SECS, session)
     sb = with(plays(), table(team_nick, type))
     sb = as.data.frame(sb)
     sb = dcast(sb, team_nick ~ type)
@@ -90,7 +91,7 @@ shinyServer(function(input, output, session) {
   
   ## create the Step Graph for Predicted Cume Goals
   output$stepgraph = renderPlot({
-    autoInvalidate()
+    invalidateLater(NUM_MILLI_SECS, session)
     plays2 = plays()
     plays2 = transform(plays2, 
                       goal_prob = predict(shot_model, plays2, type="response"))
@@ -136,6 +137,19 @@ shinyServer(function(input, output, session) {
       plot.title = element_blank())
     print(g)
 
+  })
+  
+  output$plays = renderDataTable({
+    invalidateLater(NUM_MILLI_SECS, session)
+    pbp = plays()
+    ## apply the model
+    pbp = transform(pbp, 
+                    Goal_Probability = predict(shot_model, pbp, type="response"))
+    pbp$Goal_Probability[pbp$shotind != 1] = NA
+    ## sort the data
+    pbp = arrange(pbp, desc(period), desc(time))
+    pbp = subset(pbp, select = c(period, time, type, desc, Goal_Probability))
+    pbp
   })
 
 })

@@ -29,7 +29,8 @@ shinyUI(fluidPage(
       mainPanel(
         plotOutput('rinkPlot'), 
         tableOutput("scoreboard"),
-        plotOutput("stepgraph"))
+        plotOutput("stepgraph"),
+        dataTableOutput(outputId = "scoreboard2"))
     )
     
   ))

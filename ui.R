@@ -8,7 +8,7 @@ shinyUI(fluidPage(
         a("here. ",
           href = "http://www.brocktibert.com/blog"),
         "  I will eventually blog about my work and analysis of PBP data."),
-      p("Use the options below to you change what is shown on the rink and how often the data are refreshed."),
+      p("At some point, I will provide options below so you change what is shown on the rink and how often the data are refreshed."),
       hr(),
       textInput("gameid", label = h5("The NHL.com gameid"), value = "2013030327"),
       #       checkboxInput("refreshFlag", label = h5("Auto-refresh?"), value = TRUE),

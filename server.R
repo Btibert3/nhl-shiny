@@ -85,9 +85,11 @@ shinyServer(function(input, output, session) {
     sb$team_nick = NULL
     ## fix the shots to be Shots + Goals
     sb = transform(sb, Shot = Goal + Shot)
+    ## calculate shot quality
+    sb = transform(sb, `Shot Quality` = Expected_Goals / Shot)
     ## return the object
     sb
-  }, digits = 2)
+  }, digits = 3)
   
   ## create the Step Graph for Predicted Cume Goals
   output$stepgraph = renderPlot({

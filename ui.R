@@ -9,7 +9,7 @@ shinyUI(fluidPage(
           href = "http://www.brocktibert.com/posthere")),
       p("Use the options below to you change what is shown on the rink and how often the data are refreshed."),
       hr(),
-      textInput("gameid", label = h5("The NHL.com gameid"), value = "2013030326"),
+      textInput("gameid", label = h5("The NHL.com gameid"), value = "2013030327"),
       #       checkboxInput("refreshFlag", label = h5("Auto-refresh?"), value = TRUE),
       #       checkboxGroupInput("periodShow", label = h5("Filter the Periods to display"), 
       #                          choices = list("Period 1" = 1, "Period 2" = 2, "Period 3" = 3, "1st OT" = 4, "2nd OT" = 5),

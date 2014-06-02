@@ -79,10 +79,23 @@ shinyServer(function(input, output, session) {
     sb = with(plays(), table(team_nick, type))
     sb = as.data.frame(sb)
     sb = dcast(sb, team_nick ~ type)
+    ## apply the model
+    plays2 = plays()
+    plays2 = transform(plays2, 
+                       goal_prob = predict(shot_model, plays2, type="response"))
+    plays2$goal_prob[plays2$shotind != 1] = NA
+    ## a temp dataset
+    tmp = ddply(plays2, .(team_nick), 
+                summarise, 
+                Expected_Goals = sum(goal_prob, na.rm=T))
+    ## merge onto the scoreboard
+    sb = merge(sb, tmp, all.x=T)
+    ## cleanup
     row.names(sb) = sb$team_nick
     sb$team_nick = NULL
+    ## return the object
     sb
-  }, digits = 0)
+  }, digits = 2)
   
   ## create the Step Graph for Predicted Cume Goals
   output$stepgraph = renderPlot({

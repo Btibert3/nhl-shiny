@@ -77,7 +77,8 @@ shinyServer(function(input, output, session) {
     ## a temp dataset
     tmp = ddply(plays2, .(team_nick), 
                 summarise, 
-                Expected_Goals = sum(goal_prob, na.rm=T))
+                Expected_Goals = sum(goal_prob, na.rm=T),
+                Median_Shot_Prob = median(goal_prob, na.rm=T))
     ## merge onto the scoreboard
     sb = merge(sb, tmp, all.x=T)
     ## cleanup
@@ -86,7 +87,8 @@ shinyServer(function(input, output, session) {
     ## fix the shots to be Shots + Goals
     sb = transform(sb, Shot = Goal + Shot)
     ## calculate shot quality
-    sb = transform(sb, `Shot Quality` = Expected_Goals / Shot)
+    sb = transform(sb, 
+                   `Shot Quality` = Expected_Goals / Shot)
     ## return the object
     sb
   }, digits = 3)

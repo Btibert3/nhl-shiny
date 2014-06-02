@@ -47,3 +47,4 @@ When applying the model to every shot from a player (identified by the NHL `play
 - [ ] put some liptsick on this pig
 - [ ] Modify / change the Forecasted Goals stepchart
 - [ ] Evaluate if the model should factor in time since last shot (rebounds)
+- [ ] Improve the rink plot to be interactive with mouse over detail

@@ -23,6 +23,11 @@ Clearly this is very unpolished, but just a quick highlight of the dashboard app
 
 ![dashboard](screenshot.png)
 
+## Notes:
+
+-  I have noticed that sometimes the app will fail with `match` errors on the MainPanel of the dashboard.  
+--  I am not sure if this is the NHL refusing a `GET` request to refresh the data or if there is a bug in `Shiny`.
+
 ## About the Model
 
 In my previous repo, I highlight a very proof-of-concept model. It's not elegant, but very effective when estimating a player's total season goals.  With respect to the point estimates (actual probability of a shot going in), it has some room for improvement; AUC is mid .7's.

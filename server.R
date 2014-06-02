@@ -19,7 +19,7 @@ load("shot-model.Rdata")
 shinyServer(function(input, output, session) {
   
   ## number of seconds to sleep
-  NUM_SECS = 30
+  NUM_SECS = 75
   NUM_MILLI_SECS = NUM_SECS * 1000
   
   ## TODO:  Selectively refresh the data depending the on the flag

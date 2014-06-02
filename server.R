@@ -68,17 +68,6 @@ shinyServer(function(input, output, session) {
     sb = with(plays(), table(team_nick, type))
     sb = as.data.frame(sb)
     sb = dcast(sb, team_nick ~ type)
-    row.names(sb) = sb$team_nick
-    sb$team_nick = NULL
-    sb
-  }, digits = 0)
-  
-  ## out the scoreboard
-  output$scoreboard = renderTable({
-    autoInvalidate()
-    sb = with(plays(), table(team_nick, type))
-    sb = as.data.frame(sb)
-    sb = dcast(sb, team_nick ~ type)
     ## apply the model
     plays2 = plays()
     plays2 = transform(plays2, 
@@ -93,6 +82,8 @@ shinyServer(function(input, output, session) {
     ## cleanup
     row.names(sb) = sb$team_nick
     sb$team_nick = NULL
+    ## fix the shots to be Shots + Goals
+    sb = transform(sb, Shot = Goal + Shot)
     ## return the object
     sb
   }, digits = 2)

@@ -6,6 +6,15 @@ The app also leverages a simple shot probability model that I built.
 
 That repo can [be found here](https://github.com/Btibert3/nhl-pbp).
 
+## Run the app locally
+
+I will try to have this deployed on the internets for the 2014 Stanley Cup Finals, but in the interim, you will need to deploy this app locally.
+
+1.  If you haven't already, [install `R` here](http://cran.us.r-project.org/)  
+2.  Open up a terminal, and type `R`  
+3.  When `R` opens, type, `install.packages('shiny')` into the command line  
+4.  To run my app locally, type `shiny::runGitHub("nhl-shiny", "btibert3")`
+
 ## A quick screenshot
 
 Clearly this is very unpolished, but just a quick highlight of the dashboard app.

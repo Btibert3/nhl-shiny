@@ -23,10 +23,13 @@ shinyUI(fluidPage(
       mainPanel(
         plotOutput('rinkPlot'), 
         hr(),
+        h3("Scoreboard"),
         tableOutput("scoreboard"),
         hr(),
+        h3("Expected Goals Step Chart"),
         plotOutput("stepgraph"),
         hr(),
+        h3("Most Recent Plays"),
         dataTableOutput("plays")
     )
     

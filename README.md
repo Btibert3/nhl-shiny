@@ -10,10 +10,10 @@ That repo can [be found here](https://github.com/Btibert3/nhl-pbp).
 
 I will try to have this deployed on the internets for the 2014 Stanley Cup Finals, but in the interim, you will need to deploy this app locally.
 
-1.  If you haven't already, [install `R` here](http://cran.us.r-project.org/)  
+1.  If you haven't already, [install `R` here](http://cran.us.r-project.org/)  for your OS.
 2.  Open up a terminal, and type `R`  
 3.  When `R` opens, type, `install.packages('shiny')` into the command line  
-4.  To run my app locally, type `shiny::runGitHub("nhl-shiny", "btibert3")`  
+4.  Assuming that runs without error, run my app by typing `shiny::runGitHub("nhl-shiny", "btibert3")`  
 
 This should fire up your default modern browser.  It will take a few moments to load the data, and will refresh every 20 seconds or so.  When you want to quit the app, go back to the terminal and type `CONTROL-C` to kill the process.
 

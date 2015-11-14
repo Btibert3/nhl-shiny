@@ -8,7 +8,7 @@ library(stringr)
 ###############################################################################
 ## Main function to get the data
 ###############################################################################
-buildPBP = function(gameid = "2013030316") {
+buildPBP = function(gameid = "2015020230") {
   ## bring in the game
   game_raw = getPBP(gameid)
   ## parse the game events
@@ -43,9 +43,9 @@ buildPBP = function(gameid = "2013030316") {
 ###############################################################################
 ## Function to get the game specified and return the data as a list
 ###############################################################################
-getPBP = function(gameid="2013030316") {
+getPBP = function(gameid="2015020230") {
   ## build the parameters that should be inputs later
-  SEASON = '20132014'
+  SEASON = '20152016'
   BASE = "http://live.nhl.com/GameData/"
   URL = paste0(BASE, SEASON, "/", gameid, "/PlayByPlay.json")
   ## get the data

@@ -10,7 +10,7 @@ shinyUI(fluidPage(
         "  I will eventually blog about my work and analysis of PBP data."),
       p("At some point, I will provide options below so you change what is shown on the rink and how often the data are refreshed."),
       hr(),
-      textInput("gameid", label = h5("The NHL.com gameid"), value = "2013030411"),
+      textInput("gameid", label = h5("The NHL.com gameid"), value = "2015020230"),
       #       checkboxInput("refreshFlag", label = h5("Auto-refresh?"), value = TRUE),
       #       checkboxGroupInput("periodShow", label = h5("Filter the Periods to display"), 
       #                          choices = list("Period 1" = 1, "Period 2" = 2, "Period 3" = 3, "1st OT" = 4, "2nd OT" = 5),

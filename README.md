@@ -8,7 +8,7 @@ That repo can [be found here](https://github.com/Btibert3/nhl-pbp).
 
 ## Run the app locally
 
-I will try to have this deployed on the internets for the 2014 Stanley Cup Finals, but in the interim, you will need to deploy this app locally.
+I updated the app for the `2015-16` seasons.  There are a few manual updates to the code that I could refactor and allow the end-user to set, but in the short run, it works.
 
 1.  If you haven't already, [install `R` here](http://cran.us.r-project.org/)  for your OS.
 2.  Open up a terminal, and type `R`  
@@ -44,7 +44,7 @@ When applying the model to every shot from a player (identified by the NHL `play
 ## TODO:
 
 - [ ] handle invalid gameids gracefully
-- [ ] put some liptsick on this pig
 - [ ] Modify / change the Forecasted Goals stepchart
 - [ ] Evaluate if the model should factor in time since last shot (rebounds)
 - [ ] Improve the rink plot to be interactive with mouse over detail
+- [ ] Better handle games.  Need to change the `helpers.R` for each season.

@@ -6,7 +6,7 @@ shinyUI(fluidPage(
       p("This is a simple app to visualize the events of a live NHL game."),
       p("For more information, check out my blog ",
         a("here. ",
-          href = "http://www.brocktibert.com/blog"),
+          href = "http://btibert3.github.io/"),
         "  I will eventually blog about my work and analysis of PBP data."),
       p("At some point, I will provide options below so you change what is shown on the rink and how often the data are refreshed."),
       hr(),
